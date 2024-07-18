@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Live PCR Data and Analysis</title>
+    <link href="/static/semantic-2.5.0.min.css" rel="stylesheet" />
+    <script src="/static/jquery-3.7.1.min.js"></script>
+    <script src="/static/semantic-2.5.0.min.js"></script>
+    <script src="/static/chart-4.4.1.umd.min.js"></script>
+  </head>
+  <body>
+    <div  style="width: 700px">
+        <canvas id="chartNifty"></canvas>
+    </div>
+    <script>
+        dataPCR = {
+            "NIFTY": {
+                "1530": {
+                "PCR0": 2.5500573418850614,
+                "PCR1": 2.165691881119487,
+                "PCR2": 3.1537404362655135,
+                "PCR3": 3.44848268127367,
+                "PCR4": 2.962176220681864,
+                "PCR5": 2.67766900589652
+                },
+                "1535": {
+                "PCR0": 2.7500573418850614,
+                "PCR1": 2.165691881119487,
+                "PCR2": 3.1537404362655135,
+                "PCR3": 3.44848268127367,
+                "PCR4": 2.962176220681864,
+                "PCR5": 2.67766900589652
+                },
+                "1540": {
+                "PCR0": 2.9500573418850614,
+                "PCR1": 2.165691881119487,
+                "PCR2": 3.1537404362655135,
+                "PCR3": 3.44848268127367,
+                "PCR4": 2.962176220681864,
+                "PCR5": 2.67766900589652
+                },
+                "1545": {
+                "PCR0": 2.8500573418850614,
+                "PCR1": 2.165691881119487,
+                "PCR2": 3.1537404362655135,
+                "PCR3": 3.44848268127367,
+                "PCR4": 2.962176220681864,
+                "PCR5": 2.67766900589652
+                },
+                "1550": {
+                "PCR0": 2.7500573418850614,
+                "PCR1": 2.165691881119487,
+                "PCR2": 3.1537404362655135,
+                "PCR3": 3.44848268127367,
+                "PCR4": 2.962176220681864,
+                "PCR5": 2.67766900589652
+                },
+                "1555": {
+                "PCR0": 2.6500573418850614,
+                "PCR1": 2.165691881119487,
+                "PCR2": 3.1537404362655135,
+                "PCR3": 3.44848268127367,
+                "PCR4": 2.962176220681864,
+                "PCR5": 2.67766900589652
+                },
+            },
+        }
+        const chartNifty = new Chart(document.getElementById("chartNifty"), {
+            type: "line",
+            data: {
+                labels: Object.keys(dataPCR["NIFTY"]),
+                datasets: [{
+                    label: "PCR values of NIFTY",
+                    data: Object.entries(dataPCR["NIFTY"]).map( e => e[1]["PCR0"])
+                }]
+            }
+        })
+    </script>
+   </body>
+</html>
